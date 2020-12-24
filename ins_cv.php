@@ -24,7 +24,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $ruta = $dir.$nombre.'.'.$extension;
             if (file_exists($ruta)) {                
                 $correo = new Correo();
-                $correo->Enviar($nombre.' (actualizo)',$email,'kcopado@beconsulting.com.mx','vchavezbeconsulting.com.mx','rtello@beconsulting.com.mx');
+                $correo->Enviar($nombre.' (actualizo)',$email);
                 move_uploaded_file($archivo,$ruta); 
                 header('location:../extend/alerta.php?msj=Curriculum ya existe&c=salir&p=in&t=success');                 
                 exit;
@@ -40,11 +40,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         exit;               
     } 
 
-    $ins = $cn->query("INSERT INTO perfiles VALUES('','$nombre','','','','$ruta','Candidato','$fecha','0','')");
+    $sql = "INSERT INTO perfiles VALUES(null,'$nombre',null,null,null,'$ruta','Candidato','$fecha','0',null)";
+    $ins = $cn->query($sql);
 
     if($ins) {          
         $correo = new Correo();
-        $correo->Enviar($nombre,$email,'kcopado@beconsulting.com.mx','vchavezbeconsulting.com.mx','rtello@beconsulting.com.mx');        
+        $correo->Enviar($nombre,$email);        
         $cn->close();      
         header('location:extend/alerta.php?msj=Documento se guardo exitosamente&c=salir&p=in&t=success');
     } else {

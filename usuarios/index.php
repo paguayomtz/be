@@ -38,7 +38,7 @@ include '../conexion/conexion.php';
                     </div>
                     <div class="file-field input-field"> 
                         <div class="btn grey darken-4">
-                            <span>Foto</span> <i class="material-icons">attach_file</i>
+                            <span>Foto</span> <i class="material-icons right">attach_file</i>
                             <input type="file" name="foto">
                         </div>
                         <div class="file-path-wrapper">
@@ -46,7 +46,7 @@ include '../conexion/conexion.php';
                         </div>                                                                    
                     </div>
                                     
-                    <button type="submit" class="btn white-text orange darken-4" id="btn_guardar">Guardar <i class="material-icons" >send</i> </button> 
+                    <button type="submit" class="btn white-text orange darken-4" id="btn_guardar">Guardar <i class="material-icons right" >send</i> </button> 
                                           
                 </form>                
             </div>

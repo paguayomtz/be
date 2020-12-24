@@ -1,56 +1,53 @@
 <?php
- 
+
+
+require 'PHPMailer/src/PHPMailer.php';
+require 'PHPMailer/src/Exception.php';
+require 'PHPMailer/src/SMTP.php';
+
+// Incluir la libreria PHPMailer
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+use PHPMailer\PHPMailer\SMTP;
+
 	class Correo {		
 
-	public function Enviar($nombre,$candidato,$reclutador,$reclutador2,$jefe) {
+	public $reclutador = 'kcopado@beconsulting.com.mx';
+	public $reclutador2 = 'aguayomartinezpedro@gmail.com';
+	public $jefe = 'pedro@pemz.com.mx';
 
-	include 'PHPMailer/PHPMailerAutoload.php';
-		$mail = new PHPMailer;
+	public function Enviar($nombre,$candidato) {
+		
+		$mail = new PHPMailer(TRUE);
 		$mail->IsSMTP();
-		$mail->IsHTML(true);
-		$mail->Charset = 'ISO-8859-1';
-		$mail->SMTPAuth = true;
-		$mail->SMTPSecure = 'tls';
-		$mail->Host = 'mail.gmx.com';
-		$mail->Port = 587;
-		$mail->Username = 'paguayo@gmx.com';
-		$mail->Password = 'Diana-12';
-		$mail->From = 'paguayo@gmx.com';
-		$mail->FromName = 'Servicio de BeConsulting';
+		//$mail->SMTPDebug = 2; 
+		$mail->Charset = 'UTF-8';
+		$mail->SMTPAuth = TRUE;
+		$mail->SMTPSecure = 'ssl';
+		$mail->Host = 'pemz.com.mx';
+		$mail->Port = 465;
+		$mail->Username = 'be@pemz.com.mx';
+		$mail->Password = 'P3mzZ3u$';
+		$mail->isHTML(TRUE);
+		//$mail->Charset = 'ISO-8859-1';
+		$mail->setFrom('be@pemz.com.mx', 'BeConsulting');
 		$mail->Subject = 'Nuevo CV';
-		$mail->Body = 'Buen día,<br><br><strong>'.$nombre.'</strong> a 
+		$mail->MsgHTML('Buen día,<br><br><strong>'.$nombre.'</strong> a 
 						agregado su curriculum a la plataforma<br><br><i>
-						¡Gracias por tu registo!';
+						¡Gracias por tu registo!');
 		$mail->AltBody = '';
+		$mail->addReplyTo('be@pemz.com.mx', 'BeConsulting');
 		$mail->AddAddress($candidato);
-		$mail->AddCC($reclutador);
-		$mail->AddCC($reclutador2);
-		$mail->AddBCC($jefe);
-		$mail->Send();
-
+		$mail->AddCC($this->reclutador);
+		$mail->AddCC($this->reclutador2);
+		$mail->AddBCC($this->jefe);
+		$envio = $mail->Send();
+		if(!$envio) {
+			echo 'A ocurrido un error, favor de volver a internerlo, si el problema persiste favor de conctar con el administrador
+					del sitio web: pedro@pemz.com.mx';
+		}
 		}
 
 	}
-
-	/*include 'PHPMailer/PHPMailerAutoload.php';
-        $mail = new PHPMailer;
-        $mail->IsSMTP();
-        $mail->IsHTML(true);
-        $mail->Charset = 'UTF-8';
-        $mail->SMTPAuth = true;
-        $mail->SMTPSecure = 'ssl';
-        $mail->Host = 'mail.tmaq.mx';
-        $mail->Port = 465;
-        $mail->Username = 'correo@tmaq.mx';
-        $mail->Password = '0c30m3hd1r';
-        $mail->From = 'correo@tmaq.mx';
-        $mail->FromName = 'Servicio de BeConsulting';
-        $mail->Subject = 'Nuevo CV';
-        $mail->Body = '<strong>'.$nombre.'</strong> a agrega su curriculum a la plataforma';
-        $mail->AltBody = 'contenido del mensaje';
-        $mail->AddAddress('karla_kyp@hotmail.com');
-        $mail->AddCC('paguayo@gmx.com');
-        $mail->Send();*/
-
-
+	
 ?>
