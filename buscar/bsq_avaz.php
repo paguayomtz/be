@@ -8,7 +8,7 @@
         <h4 class="center">Busqueda Avanzada</h4>
         <form style="margin-top:20px;" action="index.php" method="get" enctype="form-data">
             <div class="col s12 m6 l4"> 
-                <select id="area" name="area"  onchange="puestos(this.value)">
+                <select id="area" name="area" onchange="puestos(this.value)">
                     <option value="" disabled selected>Area</option>
                     <?php
                         $sel = $cn->query("SELECT * FROM areas ORDER BY area"); 
@@ -35,7 +35,7 @@
                 </select>
             </div>
             <div class="col s12">
-                <button type="submit" class="btn white-text orange darken-4">Buscar<i class="material-icons" >search</i> </button>
+                <button type="submit" class="btn white-text orange darken-4">Buscar<i class="material-icons right" >search</i> </button>
             </div>
         </form> 
     </div>
@@ -44,6 +44,7 @@
 <?php $cn->close(); ?>
 
 <?php include '../extend/scripts.php'; ?>
+<script src="../js/select.js" type="text/javascript"></script>
 
 </body>
 </html>

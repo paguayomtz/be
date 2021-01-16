@@ -5,7 +5,6 @@ include '../conexion/conexion.php';
 if ($_SERVER['REQUEST_METHOD'] == 'GET') {
     $id = $cn->real_escape_string(htmlentities($_GET['id']));
     $cv = $cn->real_escape_string(htmlentities($_GET['cv']));    
-    //header('location:../extend/alerta.php?msj=El ID es '.$id.'\n y CV es&c=per&p=in&t=error');
     $id_area = $cn->real_escape_string(htmlentities($_GET['area']));
     $id_puesto = $cn->real_escape_string(htmlentities($_GET['puesto']));
     $id_exp = $cn->real_escape_string(htmlentities($_GET['exp']));

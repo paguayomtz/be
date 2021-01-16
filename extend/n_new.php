@@ -2,7 +2,7 @@
 
 include '../conexion/conexion.php'; 
 
-$sel = $cn->query("SELECT COUNT(id_perfil) FROM perfiles WHERE ide_area = 0");
+$sel = $cn->query("SELECT COUNT(id_perfil) FROM perfiles WHERE ide_area IS NULL");
 
 $f = $sel->fetch_row();
 

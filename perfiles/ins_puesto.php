@@ -3,14 +3,14 @@
 include '../conexion/conexion.php';
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {    
-    $puesto = $cn->real_escape_string(htmlentities($_POST['npuesto']));
-    $ide = $cn->real_escape_string(htmlentities($_POST['id_area']));       
+    $puesto = $cn->real_escape_string($_POST['npuesto']);
+    $ide = $cn->real_escape_string($_POST['id_area']);       
     
     if (empty($puesto) || empty($ide)) {
         header('location:../extend/alerta.php?msj=Hay campo(s) vacios o sin esfecificar&c=per&p=in&t=error');
         exit;
     } else {    
-        $ins = $cn->query("INSERT INTO puestos VALUES('','$puesto','$ide')");
+        $ins = $cn->query("INSERT INTO puestos VALUES(null,'$puesto','$ide')");
         if($ins) {
             $cn->close();
             header('location:../extend/alerta.php?msj=Puesto se guardado exitosamente&c=per&p=in&t=success');

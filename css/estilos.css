@@ -1,8 +1,34 @@
+/* -------------------- ESTILOS GENERALES ----------------------- */
+.apuntador {
+    cursor: pointer;
+}
+
+.btn-fila {
+    padding: 5px 10px; 
+    border-radius: 50px;
+}
+
+.modal {
+    width: 100% !important;
+    max-height: 98% !important;
+    height: 75% !important;
+    overflow: visible;
+}
+
+#modal1 {
+    overflow: auto;
+    height: 98% !important;
+}
+
+.oculto {
+    display: none;
+}
+
 
 /* -------------------- MENU_ADMIN Y MENU RECLU ----------------------- */
-ul li:hover {
+/* ul li:hover {
     background-color: #8c9eff;
-}
+} */
 
 /* -------------------- INDEX DE LA PAGINA --------------------------- */
 

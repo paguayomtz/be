@@ -50,14 +50,14 @@
                         </select>          
                         <div class="file-field input-field"> 
                             <div class="btn grey darken-4">
-                                <span>Adjuntar</span> <i class="material-icons">attach_file</i>
+                                <span>Adjuntar</span> <i class="material-icons right">attach_file</i>
                                 <input type="file" name="cv">
                             </div>
                             <div class="file-path-wrapper">
                                 <input class="file-path validate" type="text">
                             </div>                                                                    
                         </div>                                    
-                        <button type="submit" class="btn white-text orange darken-4"> Guardar <i class="material-icons" >send</i> </button>                                           
+                        <button type="submit" class="btn white-text orange darken-4"> Guardar <i class="material-icons right">send</i> </button>                                           
                     </form>                             
                 </div>
 
@@ -78,7 +78,7 @@
                             <input type="text" name="npuesto" title="Solo letras" id="npuesto" onblur="may(this.value, this.id)" pattern="[A-Z/ ]{3,30}" required>                        
                             <label for="npuesto">Nombre del Puesto</label>                                                               
                         </div>                                                
-                        <button type="submit" class="btn white-text orange darken-4">Guardar <i class="material-icons" >send</i> </button>                                           
+                        <button type="submit" class="btn white-text orange darken-4">Guardar <i class="material-icons right" >send</i> </button>                                           
                     </form>                             
                 </div>
 
@@ -89,7 +89,7 @@
                             <input type="text" name="narea" title="Solo utilzar de la A-Z y / sin espacios" id="narea" onblur="may(this.value, this.id)" pattern="[A-Z/ ]{3,30}" required>                        
                             <label for="narea">Nombre del Area</label>                                                               
                         </div>                                                
-                        <button type="submit" class="btn white-text orange darken-4">Guardar <i class="material-icons" >send</i> </button>                                           
+                        <button type="submit" class="btn white-text orange darken-4">Guardar <i class="material-icons right">send</i> </button>                                           
                     </form>                             
                 </div>
 
@@ -101,6 +101,7 @@
 </div>
 
 <?php include '../extend/scripts.php'; ?>
+<script src="../js/select.js" type="text/javascript"></script>
 
 </body>
 </html>

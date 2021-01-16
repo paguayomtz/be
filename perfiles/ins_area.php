@@ -3,13 +3,13 @@
 include '../conexion/conexion.php';
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $area = $cn->real_escape_string(htmlentities($_POST['narea']));      
+    $area = $cn->real_escape_string($_POST['narea']);      
     
     if (empty($area)) {
         header('location:../extend/alerta.php?msj=Hay campo(s) vacios o sin esfecificar&c=per&p=in&t=error');
         exit;
     } else {    
-        $ins = $cn->query("INSERT INTO areas VALUES('','$area')");
+        $ins = $cn->query("INSERT INTO areas VALUES(NULL,'$area')");
         if($ins) {
             $cn->close();
             header('location:../extend/alerta.php?msj=Area guardada exitosamente&c=per&p=in&t=success');

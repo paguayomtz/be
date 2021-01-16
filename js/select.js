@@ -5,7 +5,7 @@ function puestos(val) {
         data: "area="+val,
         success :function(resp) {
             $("#puesto").html(resp)
-            $('#puesto').material_select();                                 
+            $('#puesto').formSelect();                               
         }
     });
 }

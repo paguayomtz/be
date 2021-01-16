@@ -3,12 +3,12 @@
 include '../conexion/conexion.php';
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {        
-    $cli = $cn->real_escape_string(htmlentities($_POST['cliente']));  
-    $cont = $cn->real_escape_string(htmlentities($_POST['contacto']));
-    $tel = $cn->real_escape_string(htmlentities($_POST['tel']));  
-    $mail = $cn->real_escape_string(htmlentities($_POST['mail']));
+    $cli = $cn->real_escape_string($_POST['cliente']);  
+    $cont = $cn->real_escape_string($_POST['contacto']);
+    $tel = $cn->real_escape_string($_POST['tel']);  
+    $mail = $cn->real_escape_string($_POST['mail']);
     
-    $ins = $cn->query("INSERT INTO clientes VALUES('', '$cli', '$cont', '$tel', '$mail', 1)");
+    $ins = $cn->query("INSERT INTO clientes VALUES(null, '$cli', '$cont', '$tel', '$mail', 1)");
 
     if($ins) {    
         header('location:../extend/alerta.php?msj=Se actualizaron el cliente correcamente&c=cli&p=in&t=success');    

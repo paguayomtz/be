@@ -3,10 +3,10 @@
 include '../conexion/conexion.php';
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $nombre = $cn->real_escape_string(htmlentities($_POST['nombre']));
-    $id_area = $cn->real_escape_string(htmlentities($_POST['area']));
-    $id_puesto = $cn->real_escape_string(htmlentities($_POST['puesto']));
-    $id_exp = $cn->real_escape_string(htmlentities($_POST['exp']));
+    $nombre = $cn->real_escape_string($_POST['nombre']);
+    $id_area = $cn->real_escape_string($_POST['area']);
+    $id_puesto = $cn->real_escape_string($_POST['puesto']);
+    $id_exp = $cn->real_escape_string($_POST['exp']);
     $sel = $cn->query("SELECT * FROM areas WHERE id_area = $id_area");
     $a = $sel->fetch_array();
     $area = str_replace("/","_",$a[1]); //$area = $a[1]; --LE QUITA LAS "/" AL NOMBRE DEL AREA Y LES PONE "_" PARA ASI CREAR LAS CARPETAS
@@ -61,7 +61,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         exit;               
     } 
 
-    $ins = $cn->query("INSERT INTO perfiles VALUES('','$nombre','$id_area','$id_puesto','$id_exp','$ruta','$user','$fecha','0','')");
+    $ins = $cn->query("INSERT INTO perfiles VALUES(null,'$nombre','$id_area','$id_puesto','$id_exp','$ruta','$user','$fecha','0','')");
 
     if($ins) {  
         $cn->close();      

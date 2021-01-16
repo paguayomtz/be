@@ -4,46 +4,26 @@
 <script src="../js/sweetalert2.all.js"></script>
 <script src="../js/buscador.js"></script>
 <script src="../js/pagination.js"></script>
-<script src="../js/select.js"></script>
 <script src="../js/star-rating.min.js"></script>
 
 <script>
+    //INICIALIZA ELEMTOS DEL MATERIALIZE
     M.AutoInit();
     $('.sidenav').sidenav();
-    $('select').material_select();
+    $('select').formSelect();
+    //$('select').material_select();
     $('.modal').modal();
 
+    //CONVERTIR EN MAYUSCULAS LOS TEXTOS
     function may(obj, id) {
         obj = obj.toUpperCase();
         document.getElementById(id).value = obj;
     }
 
+    //CONVERTIR EN MAYUSCULAS LOS TEXTOS
     function min(obj, id) {
         obj = obj.toLowerCase();
         document.getElementById(id).value = obj;
     }
-
-    function desplegar(ide) {
-        $("#ob" + ide).fadeIn(1000); //show
-        $("#fl" + ide).hide(); //hide
-        $("#flu" + ide).fadeIn(); //show
-    }
-
-    function retraer(ide) {
-        $("#ob" + ide).fadeOut(500); //hide
-        $("#flu" + ide).hide(); //hide
-        $("#fl" + ide).show(); //show
-    }
-
-    function editar(id) {
-        $("#frm" + id).fadeIn(1000); //show
-        $("#cliente" + id).hide(); //hide
-        $("#cli" + id).fadeIn(); //show
-    }
-
-    function guardar(id) {
-        $("#frm" + id).fadeOut(500); //hide
-        $("#cli" + id).hide(); //hide
-        $("#cliente" + id).show(); //show
-    }
+    
 </script>

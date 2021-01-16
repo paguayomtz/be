@@ -3,11 +3,11 @@
 include '../conexion/conexion.php';
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $id = $cn->real_escape_string(htmlentities($_POST['id']));    
-    $cli = $cn->real_escape_string(htmlentities($_POST['cliente']));  
-    $cont = $cn->real_escape_string(htmlentities($_POST['contacto']));
-    $tel = $cn->real_escape_string(htmlentities($_POST['tel']));  
-    $mail = $cn->real_escape_string(htmlentities($_POST['mail']));
+    $id = $cn->real_escape_string(($_POST['id']));    
+    $cli = $cn->real_escape_string(($_POST['cliente']));  
+    $cont = $cn->real_escape_string(($_POST['contacto']));
+    $tel = $cn->real_escape_string(($_POST['tel']));  
+    $mail = $cn->real_escape_string(($_POST['mail']));
     
     if (!empty($cli)) {
         $up = $cn->query("UPDATE clientes SET cliente='$cli' WHERE id_cliente='$id'");
@@ -19,7 +19,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $up = $cn->query("UPDATE clientes SET telefono='$tel' WHERE id_cliente='$id'");
     }
     if (!empty($mail)) {
-        $up = $cn->query("UPDATE clientes SET cliente='$mail' WHERE id_cliente='$id'");
+        $up = $cn->query("UPDATE clientes SET email='$mail' WHERE id_cliente='$id'");
     } 
     header('location:../extend/alerta.php?msj=Se actualizaron los datos correcamente&c=cli&p=in&t=success');    
     $cn->close();

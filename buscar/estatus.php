@@ -2,8 +2,8 @@
 
 include '../conexion/conexion.php';
 
-$id = $cn->real_escape_string(htmlentities($_GET['id']));
-$status = $cn->real_escape_string(htmlentities($_GET['st']));
+$id = $cn->real_escape_string($_GET['id']);
+$status = $cn->real_escape_string($_GET['st']);
 
 if ($status == 1) {
     $up = $cn->query("UPDATE perfiles SET estatus = 0, observaciones = '' WHERE id_perfil = '$id'");

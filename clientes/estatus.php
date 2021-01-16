@@ -2,8 +2,8 @@
 
 require_once '../conexion/conexion.php';
 
-$id = $cn->real_escape_string(htmlentities($_GET['id']));
-$stus = $cn->real_escape_string(htmlentities($_GET['st']));
+$id = $cn->real_escape_string($_GET['id']);
+$stus = $cn->real_escape_string($_GET['st']);
 
 if ($stus == 0) {
     $up = $cn->query("UPDATE clientes SET estatus = 1 WHERE id_cliente = '$id'");

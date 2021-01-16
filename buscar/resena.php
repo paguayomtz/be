@@ -2,8 +2,8 @@
     include '../extend/header.php'; 
     include '../conexion/conexion.php';
 
-    $ide = $cn->real_escape_string(htmlentities($_GET['ide']));
-    $nom = $cn->real_escape_string(htmlentities($_GET['nom']));
+    $ide = $cn->real_escape_string($_GET['ide']);
+    $nom = $cn->real_escape_string($_GET['nom']);
 ?>
 
 <div class="row">    
@@ -12,7 +12,7 @@
         <div class="card orange accent-4"> 
             <div class="card-content grey lighten-3">
 
-            <form action="ins_renena.php" method="post" enctype="form-data">      
+            <form action="../resena/ins_renena.php" method="post" enctype="form-data">      
                 <div>
                     <span><?php echo $nom ?></span>
                 </div> 
@@ -48,8 +48,6 @@
                 </div>                  
                 <button type="submit" class="btn white-text orange darken-4">Insertar</button>
             </form>
-
-
 
             </div>
         </div>      

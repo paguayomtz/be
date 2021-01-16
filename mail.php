@@ -32,9 +32,9 @@ use PHPMailer\PHPMailer\SMTP;
 		//$mail->Charset = 'ISO-8859-1';
 		$mail->setFrom('be@pemz.com.mx', 'BeConsulting');
 		$mail->Subject = 'Nuevo CV';
-		$mail->MsgHTML('Buen día,<br><br><strong>'.$nombre.'</strong> a 
+		$mail->MsgHTML(utf8_decode('Buen día,<br><br><strong>'.$nombre.'</strong> a 
 						agregado su curriculum a la plataforma<br><br><i>
-						¡Gracias por tu registo!');
+						¡Gracias por tu registo!'));
 		$mail->AltBody = '';
 		$mail->addReplyTo('be@pemz.com.mx', 'BeConsulting');
 		$mail->AddAddress($candidato);
